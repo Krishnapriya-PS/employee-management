@@ -1,0 +1,995 @@
+{
+  "info": {
+    "_postman_id": "507a46e8-1c02-41cc-a962-abc240011c1e",
+    "name": "Employee management",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "59381967",
+    "_collection_link": "https://go.postman.co/collection/59381967-507a46e8-1c02-41cc-a962-abc240011c1e?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Create Employee",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"firstName\": \"Manu\",\r\n  \"lastName\": \"Nair\",\r\n  \"email\": \"manu@example.com\",\r\n  \"phone\": \"9876543210\",\r\n  \"department\": \"Engineering\",\r\n  \"designation\": \"Software Engineer\",\r\n  \"salary\": 55000.00\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}",
+          "host": [
+            "{{baseUrl}}"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Create Employee",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"firstName\": \"Manu\",\r\n  \"lastName\": \"Nair\",\r\n  \"email\": \"manu@example.com\",\r\n  \"phone\": \"9876543210\",\r\n  \"department\": \"Engineering\",\r\n  \"designation\": \"Software Engineer\",\r\n  \"salary\": 55000.00\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}",
+              "host": [
+                "{{baseUrl}}"
+              ]
+            }
+          },
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 01 Nov 2026 18:42:23 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"id\": 5,\n  \"firstName\": \"Manu\",\n  \"lastName\": \"Nair\",\n  \"email\": \"manu@example.com\",\n  \"phone\": \"9876543210\",\n  \"department\": \"Engineering\",\n  \"designation\": \"Software Engineer\",\n  \"salary\": 55000,\n  \"status\": \"ACTIVE\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Create Employee with invalid phone number",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"firstName\": \"Manu\",\r\n  \"lastName\": \"Nair\",\r\n  \"email\": \"manu@example.com\",\r\n  \"phone\": \"98765432101\",\r\n  \"department\": \"Engineering\",\r\n  \"designation\": \"Software Engineer\",\r\n  \"salary\": 55000.00\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}",
+          "host": [
+            "{{baseUrl}}"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Create Employee with invalid phone number",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"firstName\": \"Manu\",\r\n  \"lastName\": \"Nair\",\r\n  \"email\": \"manu@example.com\",\r\n  \"phone\": \"98765432101\",\r\n  \"department\": \"Engineering\",\r\n  \"designation\": \"Software Engineer\",\r\n  \"salary\": 55000.00\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}",
+              "host": [
+                "{{baseUrl}}"
+              ]
+            }
+          },
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 01 Nov 2026 18:46:54 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "close"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"errors\": {\n    \"code\": 4400,\n    \"systemMessage\": \"Request validation failed\",\n    \"userMessage\": \"Phone must be exactly 10 digits\"\n  }\n}"
+        }
+      ]
+    },
+    {
+      "name": "Create Employee with existing email",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"firstName\": \"Manunath\",\r\n  \"lastName\": \"Nair\",\r\n  \"email\": \"manu@example.com\",\r\n  \"phone\": \"9876543210\",\r\n  \"department\": \"Engineering\",\r\n  \"designation\": \"Software Engineer\",\r\n  \"salary\": 55000.00\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}",
+          "host": [
+            "{{baseUrl}}"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Create Employee with existing email",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"firstName\": \"Manunath\",\r\n  \"lastName\": \"Nair\",\r\n  \"email\": \"manu@example.com\",\r\n  \"phone\": \"9876543210\",\r\n  \"department\": \"Engineering\",\r\n  \"designation\": \"Software Engineer\",\r\n  \"salary\": 55000.00\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}",
+              "host": [
+                "{{baseUrl}}"
+              ]
+            }
+          },
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 01 Nov 2026 18:45:59 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"errors\": {\n    \"code\": 4409,\n    \"systemMessage\": \"Unique constraint on email violated\",\n    \"userMessage\": \"An employee with this email already exists\"\n  }\n}"
+        }
+      ]
+    },
+    {
+      "name": "Get Employee By Id",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/2",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "2"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Get Employee By Id",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/2",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "2"
+              ]
+            }
+          },
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 01 Nov 2026 18:42:32 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"id\": 2,\n  \"firstName\": \"Asha\",\n  \"lastName\": \"Nair\",\n  \"email\": \"asha.nair3@example.com\",\n  \"phone\": \"9876543210\",\n  \"department\": \"Engineering\",\n  \"designation\": \"Senior Engineer\",\n  \"salary\": 65000,\n  \"status\": \"INACTIVE\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Get Employee By Id Not found",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/8",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "8"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Get Employee By Id Not found",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/8",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "8"
+              ]
+            }
+          },
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 01 Nov 2026 18:47:43 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"errors\": {\n    \"code\": 4404,\n    \"systemMessage\": \"No employee exists for the given id\",\n    \"userMessage\": \"Employee not found\"\n  }\n}"
+        }
+      ]
+    },
+    {
+      "name": "Get all Employees",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}",
+          "host": [
+            "{{baseUrl}}"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Get all Employees",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}",
+              "host": [
+                "{{baseUrl}}"
+              ]
+            }
+          },
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 01 Nov 2026 18:42:56 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"content\": [\n    {\n      \"id\": 2,\n      \"firstName\": \"Asha\",\n      \"lastName\": \"Nair\",\n      \"email\": \"asha.nair3@example.com\",\n      \"phone\": \"9876543210\",\n      \"department\": \"Engineering\",\n      \"designation\": \"Senior Engineer\",\n      \"salary\": 65000,\n      \"status\": \"INACTIVE\"\n    },\n    {\n      \"id\": 3,\n      \"firstName\": \"Asha\",\n      \"lastName\": \"Nair\",\n      \"email\": \"asha.nair2@example.com\",\n      \"phone\": \"9876543210\",\n      \"department\": \"Engineering\",\n      \"designation\": \"Software Engineer\",\n      \"salary\": 55000,\n      \"status\": \"ACTIVE\"\n    },\n    {\n      \"id\": 4,\n      \"firstName\": \"Asha\",\n      \"lastName\": \"Nair\",\n      \"email\": \"asha@example.com\",\n      \"phone\": \"9876543210\",\n      \"department\": \"Engineering\",\n      \"designation\": \"Software Engineer\",\n      \"salary\": 55000,\n      \"status\": \"ACTIVE\"\n    },\n    {\n      \"id\": 5,\n      \"firstName\": \"Manu\",\n      \"lastName\": \"Nair\",\n      \"email\": \"manu@example.com\",\n      \"phone\": \"9876543210\",\n      \"department\": \"Engineering\",\n      \"designation\": \"Software Engineer\",\n      \"salary\": 55000,\n      \"status\": \"ACTIVE\"\n    }\n  ],\n  \"page\": 0,\n  \"size\": 10,\n  \"totalElements\": 4,\n  \"totalPages\": 1,\n  \"last\": true\n}"
+        }
+      ]
+    },
+    {
+      "name": "Get employees with Pagination",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}?page=0&size=2",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "key": "page",
+              "value": "0"
+            },
+            {
+              "key": "size",
+              "value": "2"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Get employees with Pagination",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}?page=0&size=2",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "size",
+                  "value": "2"
+                }
+              ]
+            }
+          },
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 01 Nov 2026 18:43:21 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"content\": [\n    {\n      \"id\": 2,\n      \"firstName\": \"Asha\",\n      \"lastName\": \"Nair\",\n      \"email\": \"asha.nair3@example.com\",\n      \"phone\": \"9876543210\",\n      \"department\": \"Engineering\",\n      \"designation\": \"Senior Engineer\",\n      \"salary\": 65000,\n      \"status\": \"INACTIVE\"\n    },\n    {\n      \"id\": 3,\n      \"firstName\": \"Asha\",\n      \"lastName\": \"Nair\",\n      \"email\": \"asha.nair2@example.com\",\n      \"phone\": \"9876543210\",\n      \"department\": \"Engineering\",\n      \"designation\": \"Software Engineer\",\n      \"salary\": 55000,\n      \"status\": \"ACTIVE\"\n    }\n  ],\n  \"page\": 0,\n  \"size\": 2,\n  \"totalElements\": 4,\n  \"totalPages\": 2,\n  \"last\": false\n}"
+        }
+      ]
+    },
+    {
+      "name": "Get employees with invalid page",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}?page=ae&size=2",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "key": "page",
+              "value": "ae"
+            },
+            {
+              "key": "size",
+              "value": "2"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Get employees with Pagination",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}?page=0&size=2",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "size",
+                  "value": "2"
+                }
+              ]
+            }
+          },
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 01 Nov 2026 18:43:21 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"content\": [\n    {\n      \"id\": 2,\n      \"firstName\": \"Asha\",\n      \"lastName\": \"Nair\",\n      \"email\": \"asha.nair3@example.com\",\n      \"phone\": \"9876543210\",\n      \"department\": \"Engineering\",\n      \"designation\": \"Senior Engineer\",\n      \"salary\": 65000,\n      \"status\": \"INACTIVE\"\n    },\n    {\n      \"id\": 3,\n      \"firstName\": \"Asha\",\n      \"lastName\": \"Nair\",\n      \"email\": \"asha.nair2@example.com\",\n      \"phone\": \"9876543210\",\n      \"department\": \"Engineering\",\n      \"designation\": \"Software Engineer\",\n      \"salary\": 55000,\n      \"status\": \"ACTIVE\"\n    }\n  ],\n  \"page\": 0,\n  \"size\": 2,\n  \"totalElements\": 4,\n  \"totalPages\": 2,\n  \"last\": false\n}"
+        },
+        {
+          "name": "Get employees with invalid page",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}?page=ae&size=2",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "ae"
+                },
+                {
+                  "key": "size",
+                  "value": "2"
+                }
+              ]
+            }
+          },
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 01 Nov 2026 18:48:30 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "close"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"errors\": {\n    \"code\": 4401,\n    \"systemMessage\": \"Malformed JSON or invalid enum value\",\n    \"userMessage\": \"The request could not be understood\"\n  }\n}"
+        }
+      ]
+    },
+    {
+      "name": "Get employees By status",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}?status=INACTIVE",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "key": "page",
+              "value": "",
+              "disabled": true
+            },
+            {
+              "key": "status",
+              "value": "INACTIVE"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Get employees By status",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}?status=INACTIVE",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "status",
+                  "value": "INACTIVE"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 01 Nov 2026 18:43:29 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"content\": [\n    {\n      \"id\": 2,\n      \"firstName\": \"Asha\",\n      \"lastName\": \"Nair\",\n      \"email\": \"asha.nair3@example.com\",\n      \"phone\": \"9876543210\",\n      \"department\": \"Engineering\",\n      \"designation\": \"Senior Engineer\",\n      \"salary\": 65000,\n      \"status\": \"INACTIVE\"\n    }\n  ],\n  \"page\": 0,\n  \"size\": 10,\n  \"totalElements\": 1,\n  \"totalPages\": 1,\n  \"last\": true\n}"
+        }
+      ]
+    },
+    {
+      "name": "Get employees By invalid status",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}?status=INACTIVES",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "key": "page",
+              "value": "",
+              "disabled": true
+            },
+            {
+              "key": "status",
+              "value": "INACTIVES"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Get employees By invalid status",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}?status=INACTIVES",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "status",
+                  "value": "INACTIVES"
+                }
+              ]
+            }
+          },
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 01 Nov 2026 18:49:55 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "close"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"errors\": {\n    \"code\": 4401,\n    \"systemMessage\": \"Malformed JSON or invalid enum value\",\n    \"userMessage\": \"The request could not be understood\"\n  }\n}"
+        }
+      ]
+    },
+    {
+      "name": "Delete Employee By Id",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/2",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "2"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Delete Employee By Id",
+          "originalRequest": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/2",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "2"
+              ]
+            }
+          },
+          "_postman_previewlanguage": "text",
+          "header": [
+            {
+              "key": "Date",
+              "value": "Sun, 01 Nov 2026 18:43:52 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": ""
+        }
+      ]
+    },
+    {
+      "name": "Delete Employee By Invalid Id",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/8",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "8"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Delete Employee By Invalid Id",
+          "originalRequest": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/8",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "8"
+              ]
+            }
+          },
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 01 Nov 2026 18:50:38 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"errors\": {\n    \"code\": 4404,\n    \"systemMessage\": \"No employee exists for the given id\",\n    \"userMessage\": \"Employee not found\"\n  }\n}"
+        }
+      ]
+    },
+    {
+      "name": "Update Employee",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"firstName\": \"Ashamm\",\r\n  \"lastName\": \"Nair\",\r\n  \"email\": \"asha.nair3@example.com\",\r\n  \"phone\": \"9876543210\",\r\n  \"department\": \"Engineering\",\r\n  \"designation\": \"Senior Engineer\",\r\n  \"salary\": 65000.00,\r\n  \"status\": \"INACTIVE\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/3",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "3"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Update Employee",
+          "originalRequest": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"firstName\": \"Ashamm\",\r\n  \"lastName\": \"Nair\",\r\n  \"email\": \"asha.nair3@example.com\",\r\n  \"phone\": \"9876543210\",\r\n  \"department\": \"Engineering\",\r\n  \"designation\": \"Senior Engineer\",\r\n  \"salary\": 65000.00,\r\n  \"status\": \"INACTIVE\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/3",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "3"
+              ]
+            }
+          },
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 01 Nov 2026 18:44:33 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"id\": 3,\n  \"firstName\": \"Ashamm\",\n  \"lastName\": \"Nair\",\n  \"email\": \"asha.nair3@example.com\",\n  \"phone\": \"9876543210\",\n  \"department\": \"Engineering\",\n  \"designation\": \"Senior Engineer\",\n  \"salary\": 65000,\n  \"status\": \"INACTIVE\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Update Employee without mandatory params",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n//   \"firstName\": \"Ashamm\",\r\n//   \"lastName\": \"Nair\",\r\n//   \"email\": \"asha.nair3@example.com\",\r\n//   \"phone\": \"9876543210\",\r\n//   \"department\": \"Engineering\",\r\n  \"designation\": \"Senior Engineer\",\r\n  \"salary\": 65000.00,\r\n  \"status\": \"INACTIVE\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/3",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "3"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Update Employee without mandatory params",
+          "originalRequest": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n//   \"firstName\": \"Ashamm\",\r\n//   \"lastName\": \"Nair\",\r\n//   \"email\": \"asha.nair3@example.com\",\r\n//   \"phone\": \"9876543210\",\r\n//   \"department\": \"Engineering\",\r\n  \"designation\": \"Senior Engineer\",\r\n  \"salary\": 65000.00,\r\n  \"status\": \"INACTIVE\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/3",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "3"
+              ]
+            }
+          },
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 01 Nov 2026 18:51:42 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "close"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"errors\": {\n    \"code\": 4400,\n    \"systemMessage\": \"Request validation failed\",\n    \"userMessage\": \"Last name is required; Department is required; Email is required; First name is required\"\n  }\n}"
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": ""
+    }
+  ]
+}
